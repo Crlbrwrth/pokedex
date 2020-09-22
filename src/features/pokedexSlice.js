@@ -1,16 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const pokedexSlice = createSlice({
+  name: 'pokedex',
   initialState: {
-    value: 0
+    docs: [],
+    activePokemon: {}
   },
   reducers: {
+    setpsyduck: (state, action) => {
+      state.psyduck = action.payload
+    },
     increment: state => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
       state.value += 1
     },
     decrement: state => {
@@ -22,8 +22,13 @@ export const counterSlice = createSlice({
   }
 })
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { increment, decrement, incrementByAmount, setpsyduck } = pokedexSlice.actions
 
+export const fetchpsyduck = () => async dispatch => {
+  const response = await window.fetch('https://pokeapi.co/api/v2/pokemon/psyduck')
+  const data = await response.json()
+  dispatch(setpsyduck(data))
+}
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
 // will call the thunk with the `dispatch` function as the first argument. Async
@@ -39,4 +44,4 @@ export const incrementAsync = amount => dispatch => {
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
 export const selectCount = state => state.counter.value
 
-export default counterSlice.reducer
+export default pokedexSlice.reducer
