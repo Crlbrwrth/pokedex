@@ -3,13 +3,10 @@ import { createSlice } from '@reduxjs/toolkit'
 export const pokedexSlice = createSlice({
   name: 'pokedex',
   initialState: {
-    docs: [],
+    docs: {},
     activePokemon: {}
   },
   reducers: {
-    setpsyduck: (state, action) => {
-      state.psyduck = action.payload
-    },
     increment: state => {
       state.value += 1
     },
@@ -18,16 +15,37 @@ export const pokedexSlice = createSlice({
     },
     incrementByAmount: (state, action) => {
       state.value += action.payload
+    },
+    updateDocs: (state, action) => {
+      console.log('state', state)
+      console.log('action', action)
+      const update = action.payload
+      state.docs = { ...state.docs, ...update }
     }
   }
 })
 
-export const { increment, decrement, incrementByAmount, setpsyduck } = pokedexSlice.actions
+export const {
+  increment, decrement, incrementByAmount, setDocs, updateDocs
+} = pokedexSlice.actions
 
-export const fetchpsyduck = () => async dispatch => {
-  const response = await window.fetch('https://pokeapi.co/api/v2/pokemon/psyduck')
+export const fetchSinglePokemon = async pokemon => {
+  const result = await window.fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
+  const data = result.json()
+  return data
+}
+
+export const fetchThemAll = (state) => async (dispatch, getState) => {
+  const response = await window.fetch('https://pokeapi.co/api/v2/pokemon')
   const data = await response.json()
-  dispatch(setpsyduck(data))
+  const results = data.results
+  const list = await Promise.all(results.map(fetchSinglePokemon))
+  const updateObj = list.reduce((acc, ele) => {
+    acc[ele.name] = ele
+    return acc
+  }, {})
+  await dispatch(updateDocs(updateObj))
+  // console.log('getState()', getState())
 }
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This

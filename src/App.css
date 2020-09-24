@@ -3,7 +3,11 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
+  pointer-events: none;
+}
+.App-logo2 {
+  height: 20vmin;
   pointer-events: none;
 }
 
@@ -11,14 +15,18 @@
   .App-logo {
     animation: App-logo-float infinite 3s ease-in-out;
   }
+  .App-logo2 {
+    animation: App-logo-float2 infinite 3s ease-in-out;
+  }
 }
 
 .App-header {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
 }
 
@@ -35,5 +43,17 @@
   }
   100% {
     transform: translateY(0px)
+  }
+}
+
+@keyframes App-logo-float2 {
+  0% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(0px)
+  }
+  100% {
+    transform: translateY(10px)
   }
 }
