@@ -1,0 +1,20 @@
+export const TYPE_COLORS = {
+  bug: '#6fab59',
+  dark: '#585e56',
+  dragon: 'purple',
+  electric: 'yellow',
+  fairy: '#ff9494',
+  fighting: 'brown',
+  fire: 'red',
+  flying: '#a79ce6',
+  ghost: '#6b00d6',
+  grass: 'green',
+  ground: '#d4bb79',
+  ice: '#42ffe6',
+  normal: 'grey',
+  poison: '#a454b8',
+  psychic: '#e600d2',
+  rock: '#948a48',
+  steel: '#C0C0C0',
+  water: 'blue'
+}

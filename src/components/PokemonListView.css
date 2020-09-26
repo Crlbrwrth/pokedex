@@ -1,0 +1,50 @@
+.pokemon-single-view {
+  width: 140px;
+  height: 160px;
+  background-color: #efe;
+  margin: 5px;
+}
+
+.type-labels-container {
+  display: flex;
+  justify-content: center;
+}
+
+.type-label {
+  color: white;
+  margin: 0 5px 5px 0;
+  padding: 1px 3px;
+  min-width: 40px;
+  font-size: 14px;
+  transform: skewX(-10deg);
+  font-style: italic;
+}
+
+.type-label:hover {
+  transform: skewX(0deg);
+}
+
+.pokemon-single-view > h4 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .floating {
+    animation: App-logo-float infinite 3s ease-in-out;
+  }
+}
+
+@keyframes App-logo-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px)
+  }
+  100% {
+    transform: translateY(0px)
+  }
+}
