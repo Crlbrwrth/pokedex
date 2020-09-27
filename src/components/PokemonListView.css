@@ -1,8 +1,23 @@
-.pokemon-single-view {
+.pokemon-list-view {
+  position: relative;
   width: 140px;
   height: 160px;
-  background-color: #efe;
   margin: 5px;
+}
+
+.list-view-background {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  bottom: -25px;
+  left: 0;
+  background-color: #fcf;
+  opacity: 0.3;
+}
+
+.list-view-background:hover {
+  opacity: 0.1;
+  background-color: #ff0  ;
 }
 
 .type-labels-container {

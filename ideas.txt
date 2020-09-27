@@ -3,6 +3,7 @@ IDEAS
 - colored striped background depending on type load opacity
 - background music/image
 - pagination/load more
+- searchBar
 
 TODO
 - error handling

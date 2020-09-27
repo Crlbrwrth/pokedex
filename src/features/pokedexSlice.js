@@ -11,13 +11,21 @@ export const pokedexSlice = createSlice({
     updateDocs: (state, action) => {
       const update = action.payload
       state.docs = { ...state.docs, ...update }
+    },
+    setActive: (state, action) => {
+      const activePokemon = state.docs[action.payload]
+      state.activePokemon = activePokemon
     }
   }
 })
 
 export const {
-  increment, decrement, incrementByAmount, setDocs, updateDocs
+  updateDocs, setActive
 } = pokedexSlice.actions
+
+export const setActivePokemon = (name) => async (dispatch, getState) => {
+  dispatch(setActive(name))
+}
 
 const apiPath = 'https://pokeapi.co/api/v2/pokemon'
 
