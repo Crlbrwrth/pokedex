@@ -15,7 +15,7 @@ function App () {
 
   const pokemonList = useSelector(state => state.pokedex.docs)
 
-  const [playing, setPlaying] = useState(true)
+  const [playing, setPlaying] = useState(false)
   const [muted, setMuted] = useState(true)
 
   return (

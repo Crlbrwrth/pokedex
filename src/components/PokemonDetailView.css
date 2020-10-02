@@ -1,3 +1,17 @@
 .pokemon-detail-view {
-  background-color: red;
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 10%;
+  right: 10%;
+  background-color: aqua;
+  z-index: 2;
+}
+
+.pokemon-detail-view h2 {
+  text-transform: capitalize;
+}
+
+.pokemon-detail-view li {
+  list-style: none;
 }

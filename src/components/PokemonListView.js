@@ -4,8 +4,6 @@ import { TYPE_COLORS } from '../constants'
 import './PokemonListView.css'
 import { setActivePokemon, pokedexSlice } from '../features/pokedexSlice'
 
-console.log('pokedexSlice', pokedexSlice)
-
 const PokemonListView = ({ pokemon }) => {
   const dispatch = useDispatch()
   const { name, types } = pokemon
@@ -14,14 +12,16 @@ const PokemonListView = ({ pokemon }) => {
   const handleClick = () => setFloating(!floating)
 
   return (
-    <div className='pokemon-list-view'>
+    <div
+      className='pokemon-list-view'
+      onClick={() => dispatch(pokedexSlice.actions.setActive(name))}
+    >
       <div className='list-view-background' />
       <h4 onClick={handleClick}>{name}</h4>
       <img
         src={pokemon.sprites.front_default}
         alt={name}
         className={floating ? 'floating' : ''}
-        onClick={() => dispatch(pokedexSlice.actions.setActive(name))}
       />
       <div className='type-labels-container'>
         {types.map((ele, i) => <TypeLabel key={i} type={ele.type} />)}
