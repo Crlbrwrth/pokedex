@@ -4,14 +4,43 @@
   bottom: 10%;
   left: 10%;
   right: 10%;
-  background-color: aqua;
   z-index: 2;
+  background-color: blanchedalmond;
 }
 
 .pokemon-detail-view h2 {
   text-transform: capitalize;
 }
 
-.pokemon-detail-view li {
-  list-style: none;
+.pokemon-detail-view .overview {
+  display: flex;
+  justify-content: space-around;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.pokemon-detail-view .overview > div {
+  width: 100px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.pokemon-detail-view > img {
+  position: absolute;
+}
+
+.top {
+  top: 0
+}
+
+.bottom {
+  bottom: 0
+}
+
+.left {
+  left: 0
+}
+  
+.right {
+  right: 0
 }

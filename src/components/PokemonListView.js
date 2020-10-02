@@ -12,25 +12,31 @@ const PokemonListView = ({ pokemon }) => {
   const handleClick = () => setFloating(!floating)
 
   return (
-    <div
-      className='pokemon-list-view'
-      onClick={() => dispatch(pokedexSlice.actions.setActive(name))}
-    >
-      <div className='list-view-background' />
+    <div className='pokemon-list-view'>
+      <div
+        className='list-view-background'
+        onClick={() => dispatch(pokedexSlice.actions.setActive(name))}
+      />
       <h4 onClick={handleClick}>{name}</h4>
       <img
         src={pokemon.sprites.front_default}
         alt={name}
         className={floating ? 'floating' : ''}
       />
-      <div className='type-labels-container'>
-        {types.map((ele, i) => <TypeLabel key={i} type={ele.type} />)}
-      </div>
+      <TypeLabels types={types} />
     </div>
   )
 }
 
-const TypeLabel = ({ type }) => {
+export const TypeLabels = ({ types }) => {
+  return (
+    <div className='type-labels-container'>
+      {types.map((ele, i) => <TypeLabel key={i} type={ele.type} />)}
+    </div>
+  )
+}
+
+export const TypeLabel = ({ type }) => {
   return (
     <div
       className='type-label'

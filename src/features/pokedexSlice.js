@@ -13,7 +13,7 @@ export const pokedexSlice = createSlice({
       state.docs = { ...state.docs, ...update }
     },
     setActive: (state, action) => {
-      const activePokemon = state.docs[action.payload]
+      const activePokemon = state.docs[action.payload] || {}
       state.activePokemon = activePokemon
     }
   }

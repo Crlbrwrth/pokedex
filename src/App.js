@@ -14,6 +14,7 @@ function App () {
   }, [dispatch])
 
   const pokemonList = useSelector(state => state.pokedex.docs)
+  const activePokemon = useSelector(state => state.pokedex.activePokemon)
 
   const [playing, setPlaying] = useState(false)
   const [muted, setMuted] = useState(true)
@@ -39,7 +40,7 @@ function App () {
       <header className='App-header'>
         <h1>POKEDEX</h1>
       </header>
-      <PokemonDetailView />
+      {Boolean(Object.keys(activePokemon).length) && <PokemonDetailView />}
       <div className='App-body'>
         {
           Object.keys(pokemonList).map((key, idx) => {
