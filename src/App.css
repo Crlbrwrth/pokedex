@@ -2,6 +2,7 @@
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .App-header {
@@ -39,5 +40,4 @@
 
 .player-options > span {
   margin-right: 10px;
-
 }

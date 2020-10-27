@@ -1,9 +1,10 @@
+
 .pokemon-detail-view {
-  position: absolute;
+  position: fixed;
   top: 10%;
-  bottom: 10%;
   left: 10%;
   right: 10%;
+  min-height: 600px;
   z-index: 2;
   background-color: blanchedalmond;
 }
@@ -27,6 +28,28 @@
 
 .pokemon-detail-view > img {
   position: absolute;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.close-btn {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  font-size: 30px;
+  z-index: 3;
+  font-weight: bold;
+  transform: scale(1.4, 1);
 }
 
 .top {
