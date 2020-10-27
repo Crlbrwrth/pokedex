@@ -12,6 +12,7 @@
   left: 0;
   background-color: #fcf;
   opacity: 0.3;
+  border-radius: 5%;
 }
 
 .list-view-background:hover {

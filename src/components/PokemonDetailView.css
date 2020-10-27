@@ -7,6 +7,7 @@
   min-height: 600px;
   z-index: 2;
   background-color: blanchedalmond;
+  border-radius: 5%;
 }
 
 .pokemon-detail-view h2 {
@@ -30,6 +31,17 @@
   position: absolute;
 }
 
+.stats-container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 225px;
+  width: 225px;
+  border-radius: 50%;
+  background-color: lawngreen;
+}
 .stat-item {
   display: flex;
   justify-content: center;
